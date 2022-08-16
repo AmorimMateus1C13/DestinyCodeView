@@ -8,13 +8,12 @@
 import UIKit
 import SnapKit
 
-protocol DidClickButton {
-    func changeMan()
+protocol DestinyChoiceProtocol {
+    func destinyChoice(_ sender: String)
+    func updateUI()
 }
 
 class StoryView: UIView {
-    
-    var delegate: DidClickButton?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -24,6 +23,8 @@ class StoryView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    var delegate: DestinyChoiceProtocol?
     
     var imageBack: UIImageView = {
         let background = UIImageView()
@@ -46,37 +47,38 @@ class StoryView: UIView {
     
     var storyLabel: UILabel = {
         let label = UILabel()
+        label.textAlignment = .justified
         label.numberOfLines = 0
+        label.textColor = .white
+        label.font = UIFont.systemFont(ofSize: 25)
         return label
     }()
     
-    @objc func numberSHow(){
-        delegate?.changeMan()
-    }
-    
     var buttonChoice1: UIButton = {
-        let button1 = buttonConfiguration()
+        let button1 = ButtonConfiguration()
         button1.isUserInteractionEnabled = true
         button1.imageButton(with: Constants.Bground.choice1Bg)
-        button1.addTarget(self, action: #selector(numberSHow), for: .touchUpInside)
+        button1.addTarget(self, action: #selector(destiny), for: .touchUpInside)
         return button1
     }()
     
     var buttonChoice2: UIButton = {
-        let button2 = buttonConfiguration()
+        let button2 = ButtonConfiguration()
         button2.imageButton(with: Constants.Bground.choice2Bg)
-        button2.addTarget(self, action: #selector(numberSHow), for: .touchUpInside)
+        button2.addTarget(self, action: #selector(destiny), for: .touchUpInside)
         return button2
     }()
+    
+    @objc func destiny(_ sender: UIButton){
+        if let title = sender.currentTitle {
+            delegate?.destinyChoice(title)
+        }
+    }
 }
 
 extension StoryView: ViewConfiguration {
     func buildViewHyeranchy() {
         addSubview(imageBack)
-        
-        // Não podemos fazer a StackVertical ficar como abaixo. Add ela diretamente na view.
-//        imageBack.addSubview(stackVertical)
-        
         addSubview(stackVertical)
         stackVertical.addArrangedSubview(storyLabel)
         stackVertical.addArrangedSubview(buttonChoice1)
@@ -90,12 +92,13 @@ extension StoryView: ViewConfiguration {
         }
 
         stackVertical.snp.makeConstraints { make in
-            make.trailing.leading.top.equalToSuperview()
+            make.top.equalToSuperview().inset(32)
+            make.trailing.leading.equalToSuperview()
             make.bottom.equalToSuperview().inset(24)
         }
 
         storyLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(32)
+            make.top.equalToSuperview()
             make.trailing.leading.equalToSuperview().inset(24)
         }
 

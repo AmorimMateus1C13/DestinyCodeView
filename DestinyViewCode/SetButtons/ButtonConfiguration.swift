@@ -7,7 +7,8 @@
 
 import Foundation
 import UIKit
-class buttonConfiguration: UIButton {
+class ButtonConfiguration: UIButton {
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -16,19 +17,18 @@ class buttonConfiguration: UIButton {
         fatalError("init(coder:) has not been implemented")
     }
     
+    var storyBrain = StoryBrain()
+    
     func imageButton(with button: String) {
         switch button {
         case Constants.Bground.choice1Bg:
             setBackgroundImage(UIImage(named: Constants.Bground.choice1Bg), for: .normal)
-            setTitle(Constants.ToText.button1, for: .normal)
             
         case Constants.Bground.choice2Bg:
             setBackgroundImage(UIImage(named: Constants.Bground.choice2Bg), for: .normal)
-            setTitle(Constants.ToText.button2, for: .normal)
             
         default:
             print("Error to set buttons")
         }
     }
-
 }

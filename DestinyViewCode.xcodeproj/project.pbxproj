@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0F177E73818084733E5C040E /* Pods_DestinyViewCode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C849CCBA7460EC0BF27FAB46 /* Pods_DestinyViewCode.framework */; };
-		4D12F58D28ABD59C0081C45D /* TesteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D12F58C28ABD59C0081C45D /* TesteView.swift */; };
+		4D569D1728AC2401003053BA /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D569D1628AC2401003053BA /* Story.swift */; };
+		4D569D1928AC240B003053BA /* StoryBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D569D1828AC240B003053BA /* StoryBrain.swift */; };
 		4D8B1FF728AA744200CBDED6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8B1FF628AA744200CBDED6 /* AppDelegate.swift */; };
 		4D8B1FF928AA744200CBDED6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8B1FF828AA744200CBDED6 /* SceneDelegate.swift */; };
 		4D8B200028AA744200CBDED6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D8B1FFF28AA744200CBDED6 /* Assets.xcassets */; };
@@ -21,7 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4D12F58C28ABD59C0081C45D /* TesteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TesteView.swift; sourceTree = "<group>"; };
+		4D569D1628AC2401003053BA /* Story.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
+		4D569D1828AC240B003053BA /* StoryBrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryBrain.swift; sourceTree = "<group>"; };
 		4D8B1FF328AA744200CBDED6 /* DestinyViewCode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DestinyViewCode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D8B1FF628AA744200CBDED6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4D8B1FF828AA744200CBDED6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -50,6 +52,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D569D1A28AC3210003053BA /* SetButtons */ = {
+			isa = PBXGroup;
+			children = (
+				4D8B201B28AA9A7500CBDED6 /* ButtonConfiguration.swift */,
+			);
+			path = SetButtons;
+			sourceTree = "<group>";
+		};
 		4D8B1FEA28AA744200CBDED6 = {
 			isa = PBXGroup;
 			children = (
@@ -79,9 +89,7 @@
 				4D8B201428AA782700CBDED6 /* View */,
 				4D8B201528AA783300CBDED6 /* Controller */,
 				4D8B201A28AA881200CBDED6 /* Protocols */,
-				4D8B201B28AA9A7500CBDED6 /* ButtonConfiguration.swift */,
-				4D8B201228AA781F00CBDED6 /* Constants.swift */,
-				4D12F58C28ABD59C0081C45D /* TesteView.swift */,
+				4D569D1A28AC3210003053BA /* SetButtons */,
 			);
 			path = DestinyViewCode;
 			sourceTree = "<group>";
@@ -105,6 +113,7 @@
 		4D8B201628AA783F00CBDED6 /* Helper Files */ = {
 			isa = PBXGroup;
 			children = (
+				4D8B201228AA781F00CBDED6 /* Constants.swift */,
 				4D8B1FFF28AA744200CBDED6 /* Assets.xcassets */,
 				4D8B200128AA744200CBDED6 /* LaunchScreen.storyboard */,
 			);
@@ -114,6 +123,8 @@
 		4D8B201728AA785400CBDED6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4D569D1628AC2401003053BA /* Story.swift */,
+				4D569D1828AC240B003053BA /* StoryBrain.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -257,14 +268,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D569D1928AC240B003053BA /* StoryBrain.swift in Sources */,
 				4D8B201128AA76AB00CBDED6 /* StoryView.swift in Sources */,
 				4D8B200B28AA75E800CBDED6 /* DestinyViewController.swift in Sources */,
-				4D12F58D28ABD59C0081C45D /* TesteView.swift in Sources */,
 				4D8B1FF728AA744200CBDED6 /* AppDelegate.swift in Sources */,
 				4D8B201328AA781F00CBDED6 /* Constants.swift in Sources */,
 				4D8B201928AA875E00CBDED6 /* ViewConfiguration.swift in Sources */,
 				4D8B1FF928AA744200CBDED6 /* SceneDelegate.swift in Sources */,
 				4D8B201C28AA9A7500CBDED6 /* ButtonConfiguration.swift in Sources */,
+				4D569D1728AC2401003053BA /* Story.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
